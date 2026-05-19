@@ -1,0 +1,92 @@
+<Page
+    x:Class="Streamyfin.Windows.Views.ItemDetailPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Streamyfin.Windows.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="Black">
+
+    <ScrollViewer>
+        <Grid>
+            <!-- Background Hero Backdrop Image -->
+            <Grid Height="400" VerticalAlignment="Top">
+                <Rectangle Fill="#1A1A1A" />
+                <!-- Gradient to fade out the image bottom into the black background -->
+                <Rectangle>
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="#00000000" Offset="0.0" />
+                            <GradientStop Color="#00000000" Offset="0.6" />
+                            <GradientStop Color="#FF000000" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+            </Grid>
+
+            <!-- Main Content Overlay -->
+            <StackPanel Padding="48,320,48,48" Spacing="24" MaxWidth="1000" HorizontalAlignment="Left">
+                
+                <!-- Headers -->
+                <StackPanel Spacing="8">
+                    <TextBlock Text="The Lord of the Rings: The Fellowship of the Ring" 
+                               Style="{ThemeResource TitleTextBlockStyle}" 
+                               FontSize="36" FontWeight="Bold" Foreground="White" TextWrapping="Wrap" />
+                    <TextBlock Text="2001" Foreground="Gray" FontSize="16"/>
+                </StackPanel>
+
+                <!-- Actions Row -->
+                <StackPanel Orientation="Horizontal" Spacing="24" Margin="0,16,0,0">
+                    <FontIcon Glyph="&#xE118;" FontSize="24" Foreground="White" /> <!-- Download Icon placeholder -->
+                    <FontIcon Glyph="&#xE28F;" FontSize="24" Foreground="White" /> <!-- Cast Icon placeholder -->
+                    
+                    <Border CornerRadius="16" BorderBrush="#333333" BorderThickness="1" Background="#1A1A1A" Padding="12,6">
+                        <TextBlock Text="Max Bitrate" Foreground="White" FontSize="14" />
+                    </Border>
+                </StackPanel>
+
+                <!-- Description -->
+                <TextBlock Foreground="#EDEDED" FontSize="16" TextWrapping="WrapWholeWords" LineHeight="24">
+                    Young hobbit Frodo Baggins, after inheriting a mysterious ring from his uncle Bilbo, must leave his home in order to keep it from falling into the hands of its evil creator. Along the way, a fellowship is formed to protect the ringbearer and make sure that the ring arrives at its final destination: Mt. Doom, the only place where it can be destroyed.
+                </TextBlock>
+
+                <!-- Massive Play Button -->
+                <Button Background="{ThemeResource SystemAccentColor}"
+                        Foreground="White"
+                        CornerRadius="8"
+                        HorizontalAlignment="Stretch"
+                        Height="64"
+                        Margin="0,16,0,0">
+                    <StackPanel Orientation="Horizontal" Spacing="12" HorizontalAlignment="Center">
+                        <TextBlock Text="3h 48m" FontWeight="SemiBold" FontSize="18" VerticalAlignment="Center"/>
+                        <SymbolIcon Symbol="Play" Foreground="White" />
+                    </StackPanel>
+                </Button>
+
+                <!-- Metadata List -->
+                <Grid Margin="0,24,0,0" ColumnSpacing="32" RowSpacing="8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Video" Foreground="Gray" />
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="1080p HEVC SDR" Foreground="#DDDDDD" />
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Audio" Foreground="Gray" />
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="English - AAC - 5.1 - Default" Foreground="#DDDDDD" />
+
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Subtitles" Foreground="Gray" />
+                    <TextBlock Grid.Row="2" Grid.Column="1" Text="English - SUBRIP - External" Foreground="#DDDDDD" />
+                </Grid>
+
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Page>

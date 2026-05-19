@@ -1,0 +1,67 @@
+import { getTvShowsApi } from "@jellyfin/sdk/lib/utils/api";
+import { FlashList } from "@shopify/flash-list";
+import { useQuery } from "@tanstack/react-query";
+import { useAtom } from "jotai";
+import type React from "react";
+import { useTranslation } from "react-i18next";
+import { View } from "react-native";
+import { apiAtom, userAtom } from "@/providers/JellyfinProvider";
+import ContinueWatchingPoster from "../ContinueWatchingPoster";
+import { Text } from "../common/Text";
+import { TouchableItemRouter } from "../common/TouchableItemRouter";
+import { ItemCardText } from "../ItemCardText";
+
+export const NextUp: React.FC<{ seriesId: string }> = ({ seriesId }) => {
+  const [user] = useAtom(userAtom);
+  const [api] = useAtom(apiAtom);
+  const { t } = useTranslation();
+
+  const { data: items } = useQuery({
+    queryKey: ["nextUp", seriesId],
+    queryFn: async () => {
+      if (!api) return null;
+      return (
+        await getTvShowsApi(api).getNextUp({
+          userId: user?.Id,
+          seriesId,
+          fields: ["MediaSourceCount"],
+          limit: 10,
+        })
+      ).data.Items;
+    },
+    enabled: !!api && !!seriesId && !!user?.Id,
+    staleTime: 0,
+  });
+
+  if (!items?.length)
+    return (
+      <View className='px-4'>
+        <Text className='text-lg font-bold mb-2'>{t("item_card.next_up")}</Text>
+        <Text className='opacity-50'>{t("item_card.no_items_to_display")}</Text>
+      </View>
+    );
+
+  return (
+    <View>
+      <Text className='text-lg font-bold px-4 mb-2'>
+        {t("item_card.next_up")}
+      </Text>
+      <FlashList
+        contentContainerStyle={{ paddingLeft: 16 }}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        data={items}
+        renderItem={({ item, index }) => (
+          <TouchableItemRouter
+            item={item}
+            key={index}
+            className='flex flex-col w-44'
+          >
+            <ContinueWatchingPoster item={item} useEpisodePoster />
+            <ItemCardText item={item} />
+          </TouchableItemRouter>
+        )}
+      />
+    </View>
+  );
+};

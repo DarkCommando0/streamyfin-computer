@@ -1,0 +1,10 @@
+App.xbf
+MainWindow.xbf
+Views\DownloadsPage.xbf
+Views\HomePage.xbf
+Views\ItemDetailPage.xbf
+Views\LibraryPage.xbf
+Views\LoginPage.xbf
+Views\MediaPlayerPage.xbf
+Views\SearchPage.xbf
+Views\ShellPage.xbf

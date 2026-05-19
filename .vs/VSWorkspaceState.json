@@ -1,0 +1,10 @@
+{
+  "ActiveTargetSystem": "WSL: Ubuntu",
+  "DevContainersInfoBarHidden": true,
+  "ExpandedNodes": [
+    "",
+    "\\windows"
+  ],
+  "SelectedNode": "\\windows\\Streamyfin.Windows.csproj",
+  "PreviewInSolutionExplorer": false
+}

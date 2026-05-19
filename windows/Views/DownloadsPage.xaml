@@ -1,0 +1,19 @@
+<Page
+    x:Class="Streamyfin.Windows.Views.DownloadsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Streamyfin.Windows.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="Transparent">
+
+    <Grid Padding="24">
+        <StackPanel Spacing="16">
+            <TextBlock Text="Queue" Style="{ThemeResource SubtitleTextBlockStyle}" FontWeight="Bold"/>
+            <TextBlock Text="No items in queue" Foreground="Gray" />
+            <TextBlock Text="Active download" Style="{ThemeResource SubtitleTextBlockStyle}" FontWeight="Bold" Margin="0,24,0,0"/>
+            <TextBlock Text="No active downloads" Foreground="Gray" />
+        </StackPanel>
+    </Grid>
+</Page>

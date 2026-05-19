@@ -1,0 +1,151 @@
+{
+  "expo": {
+    "name": "Streamyfin",
+    "slug": "streamyfin",
+    "version": "0.52.0",
+    "orientation": "default",
+    "icon": "./assets/images/icon.png",
+    "scheme": "streamyfin",
+    "userInterfaceStyle": "dark",
+    "jsEngine": "hermes",
+    "newArchEnabled": true,
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "requireFullScreen": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "The app needs access to your camera to scan barcodes.",
+        "NSMicrophoneUsageDescription": "The app needs access to your microphone.",
+        "UIBackgroundModes": ["audio", "fetch"],
+        "NSLocalNetworkUsageDescription": "The app needs access to your local network to connect to your Jellyfin server.",
+        "NSLocationWhenInUseUsageDescription": "Streamyfin uses your location to detect your home WiFi network for automatic local server switching.",
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoads": true
+        },
+        "UISupportsTrueScreenSizeOnMac": true,
+        "UIFileSharingEnabled": true,
+        "LSSupportsOpeningDocumentsInPlace": true
+      },
+      "config": {
+        "usesNonExemptEncryption": false
+      },
+      "supportsTablet": true,
+      "entitlements": {
+        "com.apple.developer.networking.wifi-info": true
+      },
+      "bundleIdentifier": "com.fredrikburmester.streamyfin",
+      "icon": "./assets/images/icon-ios-liquid-glass.icon",
+      "appleTeamId": "MWD5K362T8"
+    },
+    "android": {
+      "jsEngine": "hermes",
+      "versionCode": 92,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/icon-android-plain.png",
+        "monochromeImage": "./assets/images/icon-android-themed.png",
+        "backgroundColor": "#2E2E2E"
+      },
+      "package": "com.fredrikburmester.streamyfin",
+      "permissions": [
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK",
+        "android.permission.WRITE_SETTINGS",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ],
+      "blockedPermissions": ["android.permission.ACTIVITY_RECOGNITION"],
+      "googleServicesFile": "./google-services.json"
+    },
+    "plugins": [
+      "@react-native-tvos/config-tv",
+      "expo-router",
+      "expo-font",
+      "./plugins/withExcludeMedia3Dash.js",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "deploymentTarget": "15.6",
+            "useFrameworks": "static"
+          },
+          "android": {
+            "buildArchs": ["arm64-v8a", "x86_64"],
+            "compileSdkVersion": 36,
+            "targetSdkVersion": 35,
+            "buildToolsVersion": "35.0.0",
+            "kotlinVersion": "2.0.21",
+            "minSdkVersion": 26,
+            "usesCleartextTraffic": true,
+            "packagingOptions": {
+              "jniLibs": {
+                "useLegacyPackaging": true
+              }
+            },
+            "useAndroidX": true,
+            "enableJetifier": true
+          }
+        }
+      ],
+      [
+        "expo-screen-orientation",
+        {
+          "initialOrientation": "DEFAULT"
+        }
+      ],
+      "expo-localization",
+      "expo-asset",
+      [
+        "react-native-edge-to-edge",
+        {
+          "android": {
+            "parentTheme": "Material3"
+          }
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#010101",
+          "image": "./assets/images/icon-ios-plain.png",
+          "imageWidth": 100
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/notification.png",
+          "color": "#9333EA"
+        }
+      ],
+      "expo-web-browser",
+      ["./plugins/with-runtime-framework-headers.js"],
+      ["./plugins/withChangeNativeAndroidTextToWhite.js"],
+      ["./plugins/withAndroidManifest.js"],
+      ["./plugins/withTrustLocalCerts.js"],
+      ["./plugins/withGradleProperties.js"],
+      [
+        "./plugins/withGitPod.js",
+        {
+          "podName": "MPVKit-GPL",
+          "podspecUrl": "https://raw.githubusercontent.com/streamyfin/MPVKit/0.40.0-av/MPVKit-GPL.podspec"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "e79219d1-797f-4fbe-9fa1-cfd360690a68"
+      }
+    },
+    "owner": "streamyfin",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/e79219d1-797f-4fbe-9fa1-cfd360690a68"
+    }
+  }
+}

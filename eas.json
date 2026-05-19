@@ -1,0 +1,76 @@
+{
+  "cli": {
+    "version": ">= 9.1.0"
+  },
+  "build": {
+    "development": {
+      "environment": "development",
+      "developmentClient": true,
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_WRITE_DEBUG": "1"
+      }
+    },
+    "development_tv": {
+      "environment": "development",
+      "developmentClient": true,
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "EXPO_TV": "1",
+        "EXPO_PUBLIC_WRITE_DEBUG": "1"
+      }
+    },
+    "development-simulator": {
+      "environment": "development",
+      "developmentClient": true,
+      "distribution": "internal",
+      "ios": {
+        "simulator": true
+      },
+      "env": {
+        "EXPO_PUBLIC_WRITE_DEBUG": "1"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_WRITE_DEBUG": "1"
+      }
+    },
+    "production": {
+      "environment": "production",
+      "channel": "0.52.0",
+      "android": {
+        "image": "latest"
+      }
+    },
+    "production-apk": {
+      "environment": "production",
+      "channel": "0.52.0",
+      "android": {
+        "buildType": "apk",
+        "image": "latest"
+      }
+    },
+    "production-apk-tv": {
+      "environment": "production",
+      "channel": "0.52.0",
+      "android": {
+        "buildType": "apk",
+        "image": "latest"
+      },
+      "env": {
+        "EXPO_TV": "1"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}

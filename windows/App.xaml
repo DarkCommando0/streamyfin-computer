@@ -1,0 +1,25 @@
+<Application
+    x:Class="Streamyfin.Windows.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Streamyfin.Windows"
+    xmlns:ui="using:Windows.UI"
+    RequestedTheme="Dark">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
+            </ResourceDictionary.MergedDictionaries>
+            
+            <!-- Streamyfin Violet Accent Color -->
+            <ui:Color x:Key="SystemAccentColor">#A855F7</ui:Color>
+            <ui:Color x:Key="SystemAccentColorDark1">#9333EA</ui:Color>
+            <ui:Color x:Key="SystemAccentColorDark2">#7E22CE</ui:Color>
+            <ui:Color x:Key="SystemAccentColorDark3">#6B21A8</ui:Color>
+            <ui:Color x:Key="SystemAccentColorLight1">#C084FC</ui:Color>
+            <ui:Color x:Key="SystemAccentColorLight2">#D8B4FE</ui:Color>
+            <ui:Color x:Key="SystemAccentColorLight3">#E9D5FF</ui:Color>
+            
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
